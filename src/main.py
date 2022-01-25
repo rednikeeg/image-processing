@@ -2,7 +2,7 @@
 import interface
 
 if __name__ == "__main__":
-    Interface.MyMainApp().run()
+    interface.MyMainApp().run()
 
 
 
