@@ -1,0 +1,96 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: "main"
+    Button:
+        text: "Delete background"
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "left"
+
+
+<SecondWindow>
+    name: "second"
+
+    imgDiff:imgDiff
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text : "Chose the image: "
+
+            Button:
+
+                text: root.filebtnname
+                on_press:
+                    root.fileBtn()
+
+
+            Label:
+                text : "Chose the color of background"
+
+            GridLayout:
+                cols: 2
+                Button:
+                    text: "White"
+                    background_color: 1, 1, 1, 1
+                    on_press:
+                        root.pressWhite()
+
+                Button:
+                    text: "Black"
+                    background_color: 0, 0, 0, 1
+                    on_press:
+                        root.pressBlack()
+
+                Button:
+                    text: "Blue"
+                    background_color: 0, 0, 1, 1
+                    on_press:
+                        root.pressBlue()
+
+                Button:
+                    text: "Red"
+                    background_color: 1, 0, 0, 1
+                    on_press:
+                        root.pressRed()
+
+            Label:
+                text: "Difference"
+
+            TextInput:
+                id: imgDiff
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                cols: 2
+                Button:
+                    background_color: 0, 0, 1, 1
+                    text: "Show original"
+                    on_press:
+                        root.showOriginalPic()
+
+                Button:
+                    background_color: 0, 1, 0, 1
+                    text: "Submit"
+                    on_press:
+                        root.btn()
+
+
+            Button:
+
+                text: "Go back"
+                font_size: '25sp'
+                background_color: 1, 0, 0, 1
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = "right"
+
