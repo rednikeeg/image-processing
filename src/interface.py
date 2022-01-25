@@ -30,15 +30,15 @@ class SecondWindow(Screen):
         self.bgColor = "Blue"
 
     def fileBtn(self):
-        self.file = SelectFile.openFile()
+        self.file = select_file.openFile()
 
     def showOriginalPic(self):
-        Image.showOriginal(self.file)
+        image.showOriginal(self.file)
 
 
 
     def btn(self):
-        newImage = Image.DelBackground(self.file, self.bgColor, self.imgDiff.text)
+        newImage = image.DelBackground(self.file, self.bgColor, self.imgDiff.text)
         newImage.run()
         self.imgDiff.text = ""
 
