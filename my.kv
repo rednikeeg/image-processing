@@ -5,10 +5,40 @@ WindowManager:
 <MainWindow>:
     name: "main"
     Button:
+
         text: "Delete background"
         on_release:
             app.root.current = "second"
             root.manager.transition.direction = "left"
+
+<Popups>:
+    StackLayout:
+
+
+        Button:
+            size_hint: .1,.1
+            spacing: "50dp"
+            text: "Black"
+            on_release:
+                root.pressWhite()
+        Button:
+            size_hint: .1,.1
+            spacing: "50dp"
+            text: "White"
+            on_release:
+                root.pressBlack()
+        Button:
+            size_hint: .1,.1
+            spacing: "50dp"
+            text: "Red"
+            on_release:
+                root.pressRed()
+        Button:
+            size_hint: .1,.1
+            spacing: "50dp"
+            text: "Blue"
+            on_release:
+                root.pressBlue()
 
 
 <SecondWindow>
@@ -35,31 +65,10 @@ WindowManager:
             Label:
                 text : "Chose the color of background"
 
-            GridLayout:
-                cols: 2
-                Button:
-                    text: "White"
-                    background_color: 1, 1, 1, 1
-                    on_press:
-                        root.pressWhite()
-
-                Button:
-                    text: "Black"
-                    background_color: 0, 0, 0, 1
-                    on_press:
-                        root.pressBlack()
-
-                Button:
-                    text: "Blue"
-                    background_color: 0, 0, 1, 1
-                    on_press:
-                        root.pressBlue()
-
-                Button:
-                    text: "Red"
-                    background_color: 1, 0, 0, 1
-                    on_press:
-                        root.pressRed()
+            Button:
+                text: 'press here'
+                on_press:
+                    root.show_pop()
 
             Label:
                 text: "Difference"

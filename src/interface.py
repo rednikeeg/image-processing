@@ -4,9 +4,25 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
+from kivy.uix.floatlayout import FloatLayout
+from kivy.config import Config
+from kivy.uix.stacklayout import StackLayout
+
 import image
 import select_file
 
+class Popups(StackLayout):
+    pass
+
+
+def show_popup():
+    show = Popups()
+
+    popupWindow = Popup(title="Popup Window", content=show,
+                        size_hint=(None, None), size=(500, 500))
+
+
+    popupWindow.open()
 
 class MainWindow(Screen):
     pass
@@ -19,8 +35,10 @@ class SecondWindow(Screen):
     def pressWhite(self):
         self.bgColor = "White"
 
+    def show_pop(self):
+        show_popup()
+
     def pressBlack(self):
-        print("hi")
         self.bgColor = "Black"
 
     def pressRed(self):
@@ -34,7 +52,6 @@ class SecondWindow(Screen):
 
     def showOriginalPic(self):
         image.showOriginal(self.file)
-
 
 
     def btn(self):

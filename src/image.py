@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image
 
 
 def showOriginal(original):
@@ -30,7 +30,7 @@ class DelBackground:
             for j in range(self.height):
                 if (self.bg == "Black"):
                     if self.isCloseToWipe(self.pixels[i, j], (0, 0, 0)):
-                        self.image2.putpixel([i, j], (0, 0, 0, 0))
+                        self.image2.putpixel([i, j], (0, 0, 0, 1))
 
                 elif (self.bg == "White"):
                     if self.isCloseToWipe(self.pixels[i, j], (255, 255, 255)):
