@@ -46,58 +46,76 @@ WindowManager:
 
     imgDiff:imgDiff
 
-    GridLayout:
-        cols:1
+    FloatLayout:
+        size_hint: 0.7, 0.7
+        pos_hint: {'x':0, "top": 0.95}
 
-        GridLayout:
-            cols: 2
 
-            Label:
-                text : "Chose the image: "
+        Label:
+            font_size: '10'
+            pos_hint: {'x':.1, "y": .75}
+            size_hint: .07, .07
+            text : "Chose the image: "
+
+        Button:
+            pos_hint: {'center_x':.5, "y": .70}
+            size_hint: 1,.03
+            text: root.filebtnname
+            on_press:
+                root.fileBtn()
+
+
+        Label:
+            font_size: '10'
+            pos_hint: {'x':.1, "y": .65}
+            size_hint: .07, .07
+            text : "Chose the color of background"
+
+        Button:
+            pos_hint: {'center_x':.5, "y": .60}
+            size_hint: 1,.03
+            text: 'press here'
+            on_press:
+                root.show_pop()
+
+        Label:
+            font_size: '10'
+            pos_hint: {'x':.3, "y": .55}
+            size_hint: 1, .07
+            text: "Difference"
+
+        TextInput:
+            pos_hint: {'center_x':.5, "y": .50}
+            size_hint: 1,.03
+            id: imgDiff
+            multiline: False
+
+    FloatLayout:
+
+        FloatLayout:
 
             Button:
-
-                text: root.filebtnname
+                size_hint: .1,.1
+                background_color: 0, 0, 1, 1
+                text: "Show original"
                 on_press:
-                    root.fileBtn()
-
-
-            Label:
-                text : "Chose the color of background"
+                    root.showOriginalPic()
 
             Button:
-                text: 'press here'
+                pos_hint: {"x": 0.0556, "y": 0.15}
+                size_hint: .1,.1
+                background_color: 0, 1, 0, 1
+                text: "Submit"
                 on_press:
-                    root.show_pop()
+                    root.btn()
 
-            Label:
-                text: "Difference"
+        Button:
+            pos_hint: {"x": 0, "top":1}
+            size_hint: .05,.05
+            text: "Back"
+            font_size: '13'
 
-            TextInput:
-                id: imgDiff
-                multiline: False
-
-        BoxLayout:
-            orientation: 'vertical'
-            GridLayout:
-                cols: 2
-                Button:
-                    background_color: 0, 0, 1, 1
-                    text: "Show original"
-                    on_press:
-                        root.showOriginalPic()
-
-                Button:
-                    background_color: 0, 1, 0, 1
-                    text: "Submit"
-                    on_press:
-                        root.btn()
-
-            Button:
-
-                text: "Go back"
-                font_size: '25sp'
-                background_color: 1, 0, 0, 1
-                on_release:
-                    app.root.current = "main"
-                    root.manager.transition.direction = "right"
+            background_color: 1, 0, 0, 1
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
